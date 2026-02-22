@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TODANA Marketplace</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><strong>TODANA</strong></li>
+      <li id="user-info"></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Selamat Datang di TODANA</h2>
+  <p>Marketplace Modern</p>
+</section>
+
+<!-- ===============================
+     PRODUK (WAJIB ADA ID INI)
+================================ -->
+<h2 class="section-title">Produk</h2>
+<section id="product-list" class="products"></section>
+<h2 class="section-title">Riwayat Pesanan</h2>
+<section id="order-history" class="cart"></section>
+<!-- ===============================
+     KERANJANG
+================================ -->
+<section>
+  <h2>Keranjang</h2>
+  <div class="cart">
+    <p>Total: Rp <span id="total">0</span></p>
+    <button onclick="checkout()" class="checkout-btn">
+      Checkout
+    </button>
+  </div>
+</section>
+
+<!-- ===============================
+     SCRIPT (URUTAN PENTING)
+================================ -->
+<script src="auth.js"></script>
+<script src="script.js"></script>
+
+</body>
+<!-- ===============================
+     PAYMENT MODAL
+================================ -->
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <h3>Pembayaran</h3>
+
+    <p>Total: Rp <span id="paymentTotal"></span></p>
+
+    <select id="paymentMethod">
+      <option value="">-- Pilih Metode --</option>
+      <option value="bank">Transfer Bank</option>
+      <option value="dana">DANA</option>
+    </select>
+
+    <div id="paymentInfo"></div>
+
+    <input type="file" id="paymentProof" accept="image/*">
+
+    <img id="previewImage" style="width:100%; margin-top:10px; display:none; border-radius:10px;">
+
+    <button onclick="confirmPayment()">Saya Sudah Transfer</button>
+    <button onclick="closePayment()">Batal</button>
+  </div>
+</div>
+</html>
